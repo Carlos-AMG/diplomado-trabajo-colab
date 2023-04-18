@@ -2,4 +2,6 @@ Adding new line in file 1 of collaborative work by Carlos Martinez and removing 
 This is the first file and the first commit
 modifying 1st file
 Adding line of collaborative work by Eric Martinez :)
+Adding new line in file 1 of collaborative work by Carlos Martinez and removing empty line
+Adding another line in file1 by Victor Amador
 Also adding another pull request by Carlos Martinez
