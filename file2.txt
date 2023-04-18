@@ -4,3 +4,4 @@ Modifying file 2, adding a line, Eric Martinez :)
 Modifying file 2, adding new line, Carlos Martinez 
 Adding a new line on file2, Victor Amador
 Modifying file 2, adding new line, Carlos Martinez and also doing another pull request
+Adding a new line in file 2 by Eric Martinez
