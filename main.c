@@ -29,7 +29,7 @@ static const struct buildcmd listcmd[TOTAL_CMD] = {
 int main (int argc, char **argv)
 {
     char *cmd;
-    int idx=1,idx_list,idx_lc,cmd_status;
+    int idx=1,idx_list,idx_lc;
 
     cmd = argv[idx];
 
@@ -48,7 +48,7 @@ int main (int argc, char **argv)
     {
         if(strcmp(cmd,listcmd[idx_list].namecmd) == 0)
         {
-            cmd_status = listcmd[idx_list].fncmd(argc,argv);
+            (void)listcmd[idx_list].fncmd(argc,argv);
             break;
         }
         idx_list ++;
