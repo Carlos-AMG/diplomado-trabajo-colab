@@ -1,3 +1,4 @@
+
 CC = $(CROSS_COMPILE)gcc
 LIB_NAME = uptime
 LIB_PATH = ../libs/

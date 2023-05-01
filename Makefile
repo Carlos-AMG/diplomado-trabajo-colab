@@ -29,3 +29,4 @@ clean:
 	cd ./uname && make clean
 	cd ./cat && make clean
 	rm -f *.o $(APP_NAME)
+
