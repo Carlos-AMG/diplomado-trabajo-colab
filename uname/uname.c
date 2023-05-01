@@ -1,4 +1,4 @@
-#include <uname.h>
+#include "uname.h"
 #include <sys/utsname.h>
 #include <stdio.h>
 

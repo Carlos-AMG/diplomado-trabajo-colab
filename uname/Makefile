@@ -1,17 +1,19 @@
-CROSS_COMPILE=arm-linux-gnueabihf-
-CC=$(CROSS_COMPILE)gcc
-CFLAGS=-Wall -Wextra -fPIC
-LIB_NAME=libuname.so
+CC = $(CROSS_COMPILE)gcc
+LIB_NAME = uname
+LIB_PATH = ../libs/
+INC_PATH = ../include
+OBJ = -o 
+CFLAGS = -Wall -c
 
-all: $(LIB_NAME)
+.PHONY: all install clean
 
-$(LIB_NAME): uname.so
-	$(CC) -shared $^ -o $@
+all: uname.so
 
-uname.so: uname.c uname.h
-	$(CC) $(CFLAGS) -c $< -o $@
+uname.so: uname.o 
+	$(CC) -shared uname.o $(OBJ) $(LIB_PATH)uname.so
 
-.PHONY: clean
+uname.o: uname.c
+	$(CC) $(CFLAGS) -I $(INC_PATH) -fPIC uname.c $(OBJ) uname.o
 
-clean:
-	rm -f $(LIB_NAME) uname.so
+clean: 
+	rm -f *.o $(LIB_PATH)*.so
