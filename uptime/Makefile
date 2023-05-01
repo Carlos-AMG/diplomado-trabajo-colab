@@ -1,17 +1,20 @@
-#CROSS_COMPILE = arm-linux-gnueabi-
-#CROSS_COMPILE =
-CC = gcc
-CFLAGS = -Wall
-LIB = ./
-INCLUDE := -I ../include
+
+CC = $(CROSS_COMPILE)gcc
+LIB_NAME = uptime
+LIB_PATH = ../libs/
+INC_PATH = ../include
+OBJ = -o 
+CFLAGS = -Wall -c
+
+.PHONY: all install clean
 
 all: uptime.so
 
-uptime.so: uptime.o
-	$(CROSS_COMPILE)$(CC) $(CFLAGS) -shared -o ./uptime.so uptime.o
+uptime.so: uptime.o 
+	$(CC) -shared uptime.o $(OBJ) $(LIB_PATH)uptime.so
 
-uptime.o: $(LIB)uptime.c
-	$(CROSS_COMPILE)$(CC) $(CFLAGS) $(INCLUDE) -c -fPIC $(LIB)uptime.c -o uptime.o
+uptime.o: uptime.c
+	$(CC) $(CFLAGS) -I $(INC_PATH) -fPIC uptime.c $(OBJ) uptime.o
 
-clean:
-	rm -rf *.o ./*.so
+clean: 
+	rm -f *.o $(LIB_PATH)*.so
