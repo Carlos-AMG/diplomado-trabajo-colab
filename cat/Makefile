@@ -1,18 +1,19 @@
-CROSS_COMPILE=arm-linux-gnueabihf-
-CC=$(CROSS_COMPILE)gcc
-AR=$(CROSS_COMPILE)ar
-CFLAGS=-Wall -Wextra -Werror
+CC = $(CROSS_COMPILE)gcc
+LIB_NAME = cat
+LIB_PATH = ../libs/
+INC_PATH = ../include
+OBJ = -o 
+CFLAGS = -Wall -c
 
-# Targets
-.PHONY: all clean
+.PHONY: all install clean
 
-all: libcat.so
+all: cat.so
 
-libcat.so: cat.o
-	$(CC) -shared -o $@ $^
+cat.so: cat.o 
+	$(CC) -shared cat.o $(OBJ) $(LIB_PATH)cat.so
 
-cat.o: cat.c cat.h
-	$(CC) -c $(CFLAGS) -fPIC -o $@ $<
+cat.o: cat.c
+	$(CC) $(CFLAGS) -I $(INC_PATH) -fPIC cat.c $(OBJ) cat.o
 
-clean:
-	rm -f *.o *.so
+clean: 
+	rm -f *.o $(LIB_PATH)*.so

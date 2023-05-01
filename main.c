@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 int main(int argc, char *argv[]) {
     argc--;
     argv++;
@@ -14,7 +15,7 @@ int main(int argc, char *argv[]) {
     } else if (strcmp(argv[0], "uname") == 0) {
         status = _uname(argc, argv);
     } else if (strcmp(argv[0], "cat") == 0) {
-        status = cat(argc, argv);
+        status = cat(argv[1]);
     }
     return status;
 }
