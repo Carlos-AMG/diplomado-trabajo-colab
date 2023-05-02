@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include "cat.h"
 
-void cat(const char *filename) {
+int cat(const char *filename) {
     FILE *fp = fopen(filename, "r");
     if (fp == NULL) {
         perror("Error opening file");
-        return;
+        return 1;
     }
 
     char buffer[1024];
@@ -13,4 +14,5 @@ void cat(const char *filename) {
     }
 
     fclose(fp);
+    return 0;
 }

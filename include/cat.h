@@ -1,6 +1,6 @@
 #ifndef CAT_H
 #define CAT_H
 
-void cat(const char *filename);
+int cat(const char *filename);
 
 #endif
