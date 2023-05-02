@@ -1,9 +1,8 @@
 CC = $(CROSS_COMPILE)gcc
 LIBS = -L./libs -Wl,-rpath=./libs
 
-
 APP_NAME = main
-LIB_NAME = uname uptime
+LIB_NAME = uname uptime cat
 
 OBJ = ./libs/uname.so ./libs/uptime.so ./libs/cat.so
 
@@ -23,6 +22,10 @@ $(APP_NAME): main.o ./libs/uname.so ./libs/uptime.so ./libs/cat.so
 
 main.o: main.c ./include/uname.h ./include/uptime.h ./include/cat.h
 	$(CC) -Wall -I include -c main.c -o main.o
+	
+install: $(APP_NAME) $(OBJ)
+	sudo cp $(APP_NAME) /usr/bin/
+	sudo cp $(OBJ) /usr/lib/
 
 clean:
 	cd ./uptime && make clean
